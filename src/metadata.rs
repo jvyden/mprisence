@@ -366,6 +366,7 @@ impl MetadataSource {
         self.mpris_metadata
             .as_ref()
             .and_then(|m| m.art_url())
+            .or_else(|| Some(""))
             .and_then(ArtSource::from_art_url)
             .or_else(|| {
                 self.tagged_file
